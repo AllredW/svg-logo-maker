@@ -1,0 +1,27 @@
+{
+  "name": "svg-maker",
+  "version": "1.0.0",
+  "description": "Generates an SVG logo based on user input",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllredW/svg-logo-maker.git"
+  },
+  "author": "William Allred",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AllredW/svg-logo-maker/issues"
+  },
+  "homepage": "https://github.com/AllredW/svg-logo-maker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4"
+  }
+}
