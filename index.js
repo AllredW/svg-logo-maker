@@ -1,7 +1,7 @@
 // TODO: Link relevant modules and scripts: inquirer, shapes.js,
 const inquirer = require("inquirer");
-const {writeFile} = require("fs/promises");
-const Shape = require("./lib/shapes.js");
+const { writeFile } = require("fs/promises");
+const {Shape, Triangle} = require("./lib/shapes.js");
 
 // TODO inquirer prompt package: logo text, text color, logo shape, logo color
 inquirer
@@ -38,28 +38,33 @@ inquirer
   // TODO: generate logo by passing in inquirer data
   .then((answers) => {
     console.log(answers);
+
     // Pass inquirer answers to generateMarkdown
-    //     let shapeData;
-    // switch (answers.shape) {
-    //   case "circle":
-    //   // shapeData =  new Circle;
-    //     break;
+    let shapeData;
+    switch (answers.shape) {
+      case "circle":
+        // shapeData =  new Circle;
+        break;
 
-    //     case "square":
-    //     // shapeData =  new Square;
-    //     break;
+      case "square":
+        // shapeData =  new Square;
+        break;
 
-    //   default:
-    //   // shapeData =  new Triangle;
-    //     break;
-    // }
+      default:
+        console.log(answers.color);
+        shapeData = new Triangle(answers.color);
+        break;
+    }
+console.log(shapeData);
     // checks that text length is less than 4 characters
     if (answers.text.length > 3) {
       throw new Error("Text must be no more than 3 characters long.");
     }
     //   generate new Logo with answer parameters
     // const newLogo = new Logo(`${shape}`,`${color}`, `${text}`, `${textColor}`,);
-    const svg = new Shape
+    const svg = new Shape();
     svg.generateText(answers.textColor, answers.text);
-    return writeFile("./examples/Logo.svg", svg.render())
+    svg.getShape(shapeData);
+    // svg.createColor(answers.color);
+    return writeFile("./examples/Logo.svg", svg.render());
   });

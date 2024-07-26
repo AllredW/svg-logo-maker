@@ -1,5 +1,6 @@
 <svg version="1.1" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
 
+<polygon points="150, 18 244, 182 56, 182" fill=undefined />
 <text x="150" y="125" font-size="60" text-anchor="middle" fill="blue">abc</text>
 
 </svg>
