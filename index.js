@@ -1,16 +1,8 @@
 // TODO: Link relevant modules and scripts: inquirer, shapes.js,
 const inquirer = require("inquirer");
-const fs = require("fs");
-const shapes = require("./lib/shapes.js");
-// TODO: create object template for desired logo; properties include shape, color, text
-class Logo {
-  constructor(shape, color, text, textColor) {
-    this.shape = shape;
-    this.color = color;
-    this.text = text;
-    this.textColor = textColor;
-  }
-}
+const {writeFile} = require("fs/promises");
+const Shape = require("./lib/shapes.js");
+
 // TODO inquirer prompt package: logo text, text color, logo shape, logo color
 inquirer
   .prompt([
@@ -67,4 +59,7 @@ inquirer
     }
     //   generate new Logo with answer parameters
     // const newLogo = new Logo(`${shape}`,`${color}`, `${text}`, `${textColor}`,);
+    const svg = new Shape
+    svg.generateText(answers.textColor, answers.text);
+    return writeFile("./examples/Logo.svg", svg.render())
   });
