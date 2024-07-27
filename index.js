@@ -1,7 +1,7 @@
 // TODO: Link relevant modules and scripts: inquirer, shapes.js,
 const inquirer = require("inquirer");
 const { writeFile } = require("fs/promises");
-const {Shape, Triangle} = require("./lib/shapes.js");
+const {Shape, Triangle, Circle} = require("./lib/shapes.js");
 
 // TODO inquirer prompt package: logo text, text color, logo shape, logo color
 inquirer
@@ -42,11 +42,11 @@ inquirer
     // Pass inquirer answers to generateMarkdown
     let shapeData;
     switch (answers.shape) {
-      case "circle":
-        // shapeData =  new Circle;
+      case "Circle":
+        newShape = new Circle(answers.color);
         break;
 
-      case "square":
+      case "Square":
         // shapeData =  new Square;
         break;
 
