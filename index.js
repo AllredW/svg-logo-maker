@@ -51,11 +51,7 @@ inquirer
         newShape = new Triangle(answers.color);
         break;
     }
-console.log(newShape);
-    // checks that text length is less than 4 characters
-    if (answers.text.length > 3) {
-      throw new Error("Text must be no more than 3 characters long.");
-    }
+
     //   generate new Logo with answer parameters
     // const newLogo = new Logo(`${shape}`,`${color}`, `${text}`, `${textColor}`,);
     const svg = new Shape();
