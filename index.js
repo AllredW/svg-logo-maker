@@ -51,11 +51,10 @@ inquirer
         break;
 
       default:
-        console.log(answers.color);
-        shapeData = new Triangle(answers.color);
+        newShape = new Triangle(answers.color);
         break;
     }
-console.log(shapeData);
+console.log(newShape);
     // checks that text length is less than 4 characters
     if (answers.text.length > 3) {
       throw new Error("Text must be no more than 3 characters long.");
@@ -63,8 +62,9 @@ console.log(shapeData);
     //   generate new Logo with answer parameters
     // const newLogo = new Logo(`${shape}`,`${color}`, `${text}`, `${textColor}`,);
     const svg = new Shape();
+
+    svg.generateShape(newShape);
     svg.generateText(answers.textColor, answers.text);
-    svg.getShape(shapeData);
     // svg.createColor(answers.color);
     return writeFile("./examples/Logo.svg", svg.render());
   });
