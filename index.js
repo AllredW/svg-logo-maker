@@ -40,9 +40,7 @@ inquirer
     let shapeData;
     switch (answers.shape) {
       case "Circle":
-      console.log(answers.color);
         newShape = new Circle(answers.color);
-        console.log(newShape);
         break;
 
       case "Square":
@@ -50,7 +48,6 @@ inquirer
         break;
 
       default:
-        console.log(answers.color);
         newShape = new Triangle(answers.color);
         break;
     }
